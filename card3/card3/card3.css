@@ -1,0 +1,45 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  top: 150px;
+  left: 30%;
+}
+.cards .dark {
+  background-color: #99bc85;
+}
+.cards .mid {
+  background-color: #bfd8af;
+}
+.cards .light {
+  background-color: #e1f0da;
+}
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+.cards .card p.tip {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  font-weight: 700;
+}
+.cards .card p.second-text {
+  font-size: 0.7em;
+}
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
