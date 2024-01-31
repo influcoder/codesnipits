@@ -1,1 +1,1 @@
-# codesnipits
+# codesnippets
