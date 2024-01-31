@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Watch Tutorial</title>
+    <link rel="stylesheet" href="./stop-watch.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div class="inner-container" style="--clr: #05b0ff">
+        <svg>
+          <circle cx="70" cy="70" r="70" id="d"></circle>
+        </svg>
+        <div id="day">00<br /><span>Days</span></div>
+      </div>
+      <div class="inner-container" style="--clr: #ff2972">
+        <svg>
+          <circle cx="70" cy="70" r="70" id="h"></circle>
+        </svg>
+        <div id="hours">00<br /><span>Hours</span></div>
+      </div>
+      <div class="inner-container" style="--clr: #fee800">
+        <svg>
+          <circle cx="70" cy="70" r="70" id="m"></circle>
+        </svg>
+        <div id="minutes">00<br /><span>Minutes</span></div>
+      </div>
+      <div class="inner-container" style="--clr: #04fc43">
+        <svg>
+          <circle cx="70" cy="70" r="70" id="s"></circle>
+        </svg>
+        <div id="seconds">00<br /><span>Seconds</span></div>
+      </div>
+    </div>
+
+    <script>
+      let day = document.getElementById("day");
+      let hours = document.getElementById("hours");
+      let minutes = document.getElementById("minutes");
+      let seconds = document.getElementById("seconds");
+
+      let d = document.getElementById("d");
+      let h = document.getElementById("h");
+      let m = document.getElementById("m");
+      let s = document.getElementById("s");
+
+      let totalSeconds = 0;
+
+      function updateStopwatch() {
+        totalSeconds++;
+
+        let days = Math.floor(totalSeconds / (60 * 60 * 24));
+        let hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+        let minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        let secs = totalSeconds % 60;
+
+        day.innerHTML = `${formatTime(days)}<br /><span>Days</span>`;
+        hours.innerHTML = `${formatTime(hours)}<br /><span>Hours</span>`;
+        minutes.innerHTML = `${formatTime(minutes)}<br /><span>Minutes</span>`;
+        seconds.innerHTML = `${formatTime(secs)}<br /><span>Seconds</span>`;
+
+        updateCircle(d, (days % 365) / 365);
+        updateCircle(h, hours / 24);
+        updateCircle(m, minutes / 60);
+        updateCircle(s, secs / 60);
+      }
+
+      function formatTime(value) {
+        return value < 10 ? `0${value}` : value;
+      }
+
+      function updateCircle(circle, percentage) {
+        let circumference = 2 * Math.PI * 70;
+        let dashoffset = circumference * (1 - percentage);
+        circle.style.strokeDashoffset = dashoffset;
+      }
+
+      setInterval(updateStopwatch, 1000);
+    </script>
+  </body>
+</html>
