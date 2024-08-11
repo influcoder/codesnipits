@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attractive Loader Animation</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #263038;
+      }
+      .loader {
+        position: relative;
+        width: 100px;
+        height: 100px;
+      }
+
+      .loader:before,
+      .loader:after {
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        inset: 0;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.668);
+      }
+
+      .card::before,
+      .card::after {
+        box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.668);
+      }
+      .loader:after {
+        box-shadow: 0 2px 0 #00ffb3f4 inset;
+        animation: rotate 2s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader + .loader {
+        margin-left: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"></div>
+    <div class="loader card"></div>
+  </body>
+</html>

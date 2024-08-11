@@ -1,0 +1,40 @@
+body{
+    font-family: 'Caveat', cursive;
+    font-family: 'Rubik Doodle Triangles', system-ui;
+    font-family: 'Ubuntu', sans-serif;
+    overflow-x: hidden;
+}
+img{
+    margin: -8px;
+    padding: 0px;
+    width: 108%;
+
+}
+a{
+   text-decoration: none;
+   color: #143109c1;
+   font-size: medium;
+}
+li{
+    list-style: none;
+    margin: 10px;
+    
+}
+ul{
+    position: absolute;
+    top: 0px;
+    right: 0%;
+    display: flex;
+    float:right;
+}
+p{
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    font-size: xx-large;
+    float:left;
+}
+footer{
+    background-color: black;
+    margin: -8px;
+}
