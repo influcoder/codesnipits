@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <div class="outer">
-      <form action="" class="form">
+      <form action="" class="form" id="form">
         <div class="title">
           Hello,
           <br /><span>Log in to continue</span>
         </div>
-        <input type="email" placeholder="Email" name="email" class="input" />
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          name="email"
+          class="input"
+        />
         <input
           type="password"
           placeholder="Password"
           name="password"
           class="input"
+          id="password"
         />
         <div class="login-with">
           <div class="button-log">t</div>
@@ -26,6 +34,7 @@
           <div class="button-log">f</div>
         </div>
         <button class="button-confirm">Log In -></button>
+        <p id="message" style="margin-top: 15px; color: red"></p>
       </form>
     </div>
   </body>
