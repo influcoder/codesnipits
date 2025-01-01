@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1d1f27;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  margin: 40px;
+  font-size: 2em;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 35%;
+}
+
+/* Hover Animations */
+
+/* 1. Glow Effect */
+.hover-glow {
+  background-color: #1d1f27;
+  border: 2px solid #0ff;
+  color: #0ff;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff;
+}
+
+/* 2. Gradient Border */
+.hover-ripple {
+  background-color: #1d1f27;
+  border: 2px solid #ff0066;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hover-ripple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.hover-ripple:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* 3. Gradient Background */
+.hover-background {
+  background: linear-gradient(45deg, #ff0066, #ffcc00, #00ffcc);
+  color: #fff;
+}
+
+.hover-background:hover {
+  background: linear-gradient(90deg, #00ffcc, #ff0066, #ffcc00);
+}
+
+/* 4. Text Shine Effect */
+.hover-text {
+  background-color: #1d1f27;
+  border: 2px solid #ffcc00;
+  color: #fff;
+  position: relative;
+}
+
+.hover-text::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.hover-text:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* 5. 3D Effect */
+.hover-3d {
+  background-color: #0ff;
+  border: 2px solid #0ff;
+  color: #1d1f27;
+  box-shadow: 0 8px #ff0066;
+}
+
+.hover-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px #ff0066;
+}
+
+/* 6. Pulse Effect */
+.hover-pulse {
+  background: linear-gradient(45deg, #ff0066, #ffcc00, #00ffcc);
+  color: #fff;
+}
+
+.hover-pulse:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.9);
+  }
+}
+
+/* 7. Wipe Effect */
+.hover-wipe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.hover-wipe:hover::before {
+  left: 0;
+}
+
+/* 8. Fill Effect */
+.hover-fill::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0066;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.hover-fill:hover::before {
+  top: 0;
+}
+
+/* 9. Swing Effect */
+.hover-tilt {
+  background-color: #ffcc00;
+  color: #000;
+  border: 2px solid #ffcc00;
+}
+
+.hover-tilt:hover {
+  transform: perspective(600px) rotateX(10deg) rotateY(10deg);
+  transition: transform 0.4s ease;
+}
+
+/* 10. Fade Effect */
+.hover-fade {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.hover-fade:hover {
+  opacity: 0.5;
+}
+
+/* 11. Gradient Border */
+.hover-border-gradient {
+  background-color: #1d1f27;
+  color: #fff;
+  border: 3px solid transparent;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  border-radius: 8px; /* Optional: add border-radius for rounded corners */
+  background-image: linear-gradient(45deg, #ff0066, #00ffcc, #ff0066, #00ffcc);
+  background-size: 400%;
+  background-position: 0%;
+  -webkit-background-clip: text; /* Ensures gradient is applied to the text */
+  background-clip: text;
+}
+
+.hover-border-gradient:hover {
+  color: #ff0066;
+}
+
+@keyframes border-shine {
+  0% {
+    background-position: 400% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 400% 0%;
+  }
+}
+
+/* 12. Flip Effect */
+.hover-slide {
+  background-color: #00ffcc;
+  color: #1d1f27;
+  border: 2px solid #00ffcc;
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0066;
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.hover-slide:hover::before {
+  left: 0;
+}
+
+.hover-slide:hover {
+  color: #fff;
+}
+
+/* 13. Pop Effect */
+.hover-pop:hover {
+  transform: scale(1.2);
+}
+
+/* 14. Glossy Effect */
+.hover-gloss::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.hover-gloss:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* 15. Wave Effect */
+.hover-wave::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.6s ease;
+}
+
+.hover-wave:hover::after {
+  left: 100%;
+}
+
+/* 16. Light Sweep */
+.hover-light::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2)
+  );
+  transition: all 0.5s ease;
+}
+
+.hover-light:hover::before {
+  left: 0;
+  top: 0;
+}
